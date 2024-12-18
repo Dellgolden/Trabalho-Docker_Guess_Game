@@ -3,6 +3,8 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install curl -y
+
 # Copia os requisitos e instala as dependências
 COPY requirements.txt .
 # RUN pip install --no-cache-dir -r requirements.txt

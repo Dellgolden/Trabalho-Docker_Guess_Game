@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres:14
+    restart: always
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
@@ -15,6 +16,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
     environment:
       FLASK_APP: run.py
       FLASK_DB_TYPE: postgres
@@ -23,15 +25,25 @@ services:
       FLASK_DB_NAME: guess_game
       FLASK_DB_HOST: db
       FLASK_DB_PORT: 5432
-      AWS_REGION: sa-east-1
     networks:
       - app-network
     depends_on:
       - db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
 
   frontend:
     build:
       context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+    - REACT_APP_BACKEND_URL=http://localhost
     networks:
       - app-network
     ports:
