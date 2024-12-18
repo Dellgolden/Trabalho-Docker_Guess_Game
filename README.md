@@ -162,7 +162,7 @@ Foi criada uma entrada para o serviço PostgreSQL, passando as credenciais e o b
 ```
 #### 1.4. Load Balancer (NGINX)
 
-Um serviço NGINX foi configurado para atuar como balanceador de carga, distribuindo requisições tanto para o frontend quanto para o backend. O arquivo de configuração nginx.conf, localizado na raiz do repositório, é mapeado dentro do container como arquivo de configuração do NGINX.
+Um serviço NGINX foi configurado para atuar como balanceador de carga, distribuindo requisições tanto para o frontend quanto para o backend. O arquivo de configuração nginx.conf, localizado na raiz do repositório, é mapeado dentro do container Frontend, como arquivo de configuração do NGINX.
 
 ```yaml
 FROM nginx:alpine
