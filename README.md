@@ -27,9 +27,9 @@ Depois, execute:
 docker-compose up --build
 ```
 
-Você pode acessar a aplicação a partir de sua máquina utilizando o link do localhost na porta 80: http://localhost.
+Você pode acessar a aplicação a partir de sua máquina utilizando o link do localhost na porta 80: http://localhost
 
-Você devera vistualizar uma pagina como essa abaixo:
+Você devera visualizar uma pagina como essa abaixo:
 
 <img src="localhost.png">
 
